@@ -69,3 +69,7 @@ body {
   margin-right: 200px;
   margin-left: 200px;
 }
+
+.marker {
+  width: 500px;
+}
