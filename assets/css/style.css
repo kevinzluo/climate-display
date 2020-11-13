@@ -35,8 +35,37 @@ body {
 .global {
   z-index: 101;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #a4f0a8;
 }
 
 .text {
   padding: 5px;
+}
+
+.image-section {
+  display: flex;
+  justify-content: center;
+}
+
+.spacing {
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+.caption {
+  width: 500px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.separate {
+  margin-top: 25px;
+}
+
+.separate-lines {
+  margin-bottom: 5px;
+}
+.text-area {
+  margin-right: 200px;
+  margin-left: 200px;
 }
