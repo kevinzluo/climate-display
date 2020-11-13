@@ -78,8 +78,25 @@ function zoomToFeature(e) {
     color: "black",
     weight: 5,
   });
+
+  var layer = e.target;
+  var state = layer.feature.properties.NAME;
+
+  if (stationLayer != undefined) {
+    map.removeLayer(stationLayer);
+  }
+
+  stationLayer = L.layerGroup.stationsLayer({
+    state: state,
+  });
+
+  stationLayer.addTo(map);
 }
 
 console.log(us_states);
 
-L.layerGroup.stationsLayer().addTo(map);
+var stationLayer = L.layerGroup.stationsLayer({
+  state: "Tennessee",
+});
+
+stationLayer.addTo(map);

@@ -71,9 +71,9 @@ with open("ghcnd-stations.txt") as f:
         if arr[4] in abbrev_us_state:
             state = abbrev_us_state[arr[4]]
             if state in mydict:
-                mydict[state].append(arr[0])
+                mydict[state][arr[0]] = [arr[1], arr[2]]
             else:
-                mydict[state] = [arr[0]]
+                mydict[state] = {arr[0]: [arr[1], arr[2]]}
 
         line = f.readline()
         arr = line.split()
