@@ -1,6 +1,7 @@
 L.LayerGroup.StationsLayer = L.LayerGroup.extend({
   options: {
     minZoom: 10,
+    attribution: "NOAA",
   },
 
   initialize: function (options) {
@@ -50,7 +51,7 @@ L.LayerGroup.StationsLayer = L.LayerGroup.extend({
     var key = obj.key;
 
     marker.bindPopup(function () {
-      var stationURL = `https://www.ncei.noaa.gov/access/services/data/v1?dataset=global-summary-of-the-year&dataType=PRCP,TAVG,DT00,DX90&stations=${obj.key}&startDate=1900-01-01&endDate=2020-12-31&includeAttributes=false&includeStationName=true&format=json`;
+      var stationURL = `https://www.ncei.noaa.gov/access/services/data/v1?dataset=global-summary-of-the-year&dataType=PRCP,TAVG,DT00,DX90&stations=${obj.key}&startDate=1900-01-01&endDate=2020-12-31&includeAttributes=false&includeStationName=true&units=standard&format=json`;
       var el = document.createElement("div");
       el.classList.add("marker");
       el.id = obj.key;
@@ -66,10 +67,17 @@ L.LayerGroup.StationsLayer = L.LayerGroup.extend({
         s += `Recorded Period: ${stationData[0]["DATE"]} -- ${
           stationData[stationData.length - 1]["DATE"]
         }<br>`;
-        s += `Number of Measurements: ${stationData.length}<br>`;
+        var numObs = 0;
+        for (var i = 0; i < stationData.length; i++) {
+          if (stationData[i]["TAVG"] != undefined) {
+            numObs++;
+          }
+        }
+        s += `Number of Measurements: ${numObs}<br>`;
+
         s += `Coverage: ${
           Math.round(
-            (1000 * stationData.length) /
+            (1000 * numObs) /
               (parseInt(stationData[stationData.length - 1]["DATE"]) -
                 parseInt(stationData[0]["DATE"]) +
                 1)
@@ -116,10 +124,12 @@ L.LayerGroup.StationsLayer = L.LayerGroup.extend({
 
         oldAvg = Math.round(oldAvg * 10) / 10;
         newAvg = Math.round(newAvg * 10) / 10;
+        var differential = newAvg - oldAvg;
+        differential = Math.round(differential * 10) / 10;
 
-        s += `Average of Oldest 10 Temperatures: ${oldAvg}<br>`;
-        s += `Average of Newest 10 Temperatures: ${newAvg}`;
-
+        s += `Average of Oldest 10 Temperatures: ${oldAvg} °F<br>`;
+        s += `Average of Newest 10 Temperatures: ${newAvg} °F<br>`;
+        s += `Differential: ${differential} °F<br>`;
         content.innerHTML = s;
         el.appendChild(content);
       });

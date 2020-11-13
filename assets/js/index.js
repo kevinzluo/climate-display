@@ -6,11 +6,11 @@ var map = L.map("map", {
   maxBoundsViscosity: 1,
   zoom: 5,
   minZoom: 4,
-});
+}).setView([37.0902, -95.7129], 5);
 
-var latlngs = L.rectangle(bounds).getLatLngs();
-L.polyline(latlngs[0].concat(latlngs[0][0])).addTo(map);
-L.polyline(latlngs[0].concat(latlngs[0][0])).addTo(map);
+// var latlngs = L.rectangle(bounds).getLatLngs();
+// L.polyline(latlngs[0].concat(latlngs[0][0])).addTo(map);
+// L.polyline(latlngs[0].concat(latlngs[0][0])).addTo(map);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:

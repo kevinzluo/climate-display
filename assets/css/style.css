@@ -7,7 +7,7 @@ body {
 
 #container {
   width: 100%;
-  height: 90%;
+  height: 80vh;
   padding: 0px;
   margin: 0px;
   overflow: hidden;
@@ -23,11 +23,10 @@ body {
   position: absolute;
   right: 0%;
   top: 0%;
-  bottom: 10vh;
+  bottom: 20vh;
   width: 60%;
   /* background-color: blue; */
   font-family: Arial, Helvetica, sans-serif;
-  background-color: blue;
   z-index: 100;
   display: none;
 }
@@ -35,7 +34,7 @@ body {
 .global {
   z-index: 101;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #a4f0a8;
+  margin: 0px;
 }
 
 .text {
@@ -72,4 +71,15 @@ body {
 
 .marker {
   width: 500px;
+}
+
+.centering {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.navbar-nav > li {
+  padding-left: 30px;
+  padding-right: 30px;
 }
