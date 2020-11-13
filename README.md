@@ -4,13 +4,19 @@ Climate change and its associated effects are likely the most pressing issues fa
 
 ## What it does
 
-Climate Display allows users to explore local trends in temperature from stations near them. On our interactive leaflet map, the useris able to choose their home state and scroll in towards thier home. From there, they can view summaries of data collected from various stations, and see the measureable increases in temperature that have occured near their home.
+Climate Display allows users to explore local trends in temperature from stations near them. On our interactive leaflet map, the user is able to choose their home state and scroll in towards their home. From there, they can view summaries of data collected from various stations and see the measureable increases in temperature that have occured near their home.
+
+### Demos because Zoom Video was weird
+
+![tennessee](assets/images/tennessee.gif)
+![utah](assets/images/utah.gif)
+![alaska](assets/images/alaska.gif)
 
 ## How we built it
 
-We built the map for Climate Display using Leaflet.js. When the user clicks their home state and scrolls to a high enough zoom level, we call a NOAA api which then returns a list of weather stations. We are then able to match each of these weather stations to their location, allowing us to add them as markers to the graph. Once the user clicks on a marker, a different NOAA api si called to return the data collected by that station over the past 100 years.
+We built the map for Climate Display using Leaflet.js. When the user clicks their home state and scrolls to a high enough zoom level, we call a NOAA api which then returns a list of weather stations. We are then able to match each of these weather stations to their location, allowing us to add them as markers to the graph. Once the user clicks on a marker, a different NOAA api is called to return the data collected by that station over the past 100 years.
 
-![Example](assets/images/example.png)
+![Example](https://raw.githubusercontent.com/kevinzluo/climate-display/master/assets/images/example.png)
 
 The visualizations for global trends were either created using Google sheets or gathered from the internet.
 
